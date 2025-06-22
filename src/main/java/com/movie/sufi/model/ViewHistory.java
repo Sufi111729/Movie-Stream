@@ -20,6 +20,7 @@ public class ViewHistory {
     private String user;
 
     @ManyToOne
-    @JoinColumn(name = "movie_id")
-    private Movie movie;
+    @JoinColumn(name = "content_id")
+    private Content content;
+
 }

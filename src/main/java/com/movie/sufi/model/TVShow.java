@@ -1,19 +1,27 @@
-
 package com.movie.sufi.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.Set;
 
 @Entity
-@DiscriminatorValue("MOVIE")
+@DiscriminatorValue("TVSHOW")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Movie extends Content {
+public class TVShow extends Content {
 
-    private int duration; // in minutes
+    private String creator;
+
+    @ElementCollection
+    @Column(name = "cast_members")
+    private Set<String> cast;
+
+    private int seasons;
+
+    private int episodes;
 
     private String language;
 
@@ -22,5 +30,4 @@ public class Movie extends Content {
     private String thumbnailUrl;
 
     private String videoUrl;
-    
 }
